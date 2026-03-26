@@ -4,10 +4,10 @@ let
     pkgs.fetchFromGitHub {
       owner = "xieby1";
       repo = "local-typst-env";
-      rev = "a2ef3c7d352e31535db73513a85f4f4a45b474ea";
-      hash = "sha256-wRJ0VhqgWz1FpHCpKyUY8KH8NarvNHZyAAs2AOR/HNE=";
+      rev = "a914fcd702e3c0097acc9974100ab2e9a2d968a9";
+      hash = "sha256-sF4dViV0o4Mgupl/akmKaWdr5qV8KToPm46II1xk8C8=";
     }
   ) {};
 in local-typst-env {
-  src = ./.; # TODO: nix ignore
+  src = pkgs.nix-gitignore.gitignoreSource [] ./.;
 }
