@@ -1,0 +1,6 @@
+^1. parent level-1 heading
+^1.1. parent level-2 heading
+^1.1.1. child level-1 heading
+^1.1.1.1. child level-2 heading
+^1.1.1.1.1. grandchild level-1 heading
+^1.1.1.1.1.1. grandchild level-2 heading
