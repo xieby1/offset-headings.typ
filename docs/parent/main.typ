@@ -6,5 +6,5 @@
 
 == parent level-2 heading
 
-#lib.offset-headings(2, include "./child.typ")
+#lib.offset-headings(2, include "./child/main.typ")
 
