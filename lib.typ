@@ -22,6 +22,8 @@
         let body = ita.remove("body")
         ita.depth += offset
         itf(..ita, body)
+      } else if itr == "styled" {
+        itf(f(ita.remove("child")), ita.styles)
       } else {
         it
       }
