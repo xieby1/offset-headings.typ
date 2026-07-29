@@ -2,9 +2,10 @@
   npinsed ? import ./npins,
   pkgs ? import npinsed.nixpkgs {},
   local-typst-env ? pkgs.callPackage npinsed.local-typst-env.outPath {},
+  inNixShell ? false,
 }: local-typst-env {
   src = pkgs.nix-gitignore.gitignoreSource [] ./.;
-  nativeBuildInputs = [
+  nativeBuildInputs = pkgs.lib.optionals inNixShell [
     # for tests
     pkgs.poppler-utils
     (let src = pkgs.fetchurl {
