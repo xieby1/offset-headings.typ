@@ -21,7 +21,12 @@
       } else if itr == "heading" {
         let body = ita.remove("body")
         ita.depth += offset
-        itf(..ita, body)
+        let lbl = ita.remove("label", default: none)
+        // Headings can carry a label field, but the heading constructor rejects it
+        // Re-attach after rebuild to keep links/refs.
+        // Check <test-label-handling>
+        let h = itf(..ita, body)
+        if lbl == none { h } else { [#h#lbl] }
       } else if itr == "styled" {
         itf(f(ita.remove("child")), ita.styles)
       } else {
