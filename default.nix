@@ -1,9 +1,9 @@
 {
   npinsed ? import ./npins,
   pkgs ? import npinsed.nixpkgs {},
-  local-typst-env ? pkgs.callPackage npinsed.local-typst-env.outPath {},
+  buildLocalTypstEnv ? pkgs.callPackage npinsed.local-typst-env.outPath {},
   inNixShell ? false,
-}: local-typst-env {
+}: buildLocalTypstEnv {
   src = pkgs.nix-gitignore.gitignoreSource [] ./.;
   nativeBuildInputs = pkgs.lib.optionals inNixShell [
     # for tests
